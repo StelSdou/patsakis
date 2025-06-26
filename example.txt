@@ -1,0 +1,10 @@
+@app.route("/api", methods=['POST'])
+def api():
+    data = request.get_json()
+    if not data:
+        return jsonify({"error": "No data provided"}), 400
+    name = data.get("name", "x")
+    return jsonify({"message": f"Hello, {name}!"})
+
+
+curl -X POST http://127.0.0.1:5000/api -H "Content-Type: application/json" -d '{"name": "stelios geoulas"}'

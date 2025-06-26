@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html, body, form{
+    background-color: rgb(200, 230, 255);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub{
+  margin-top: 20px;
+  background-color: rgb(54, 134, 255);
+  padding: 10px;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+}
+
+.sub:hover{
+  background-color: rgb(54, 134, 200);
+}
+
+.box{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: start;
+    color: #333;
+    width: 50%;
+    height: 50%;
+    display: grid;
+    grid-template-rows: 10% 1fr;
+    background-color: aliceblue;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgb(0 0 0 / 0.2);
+    padding: 30px;
+}
+
+.inside{
+  border: 3px dashed #a3b1c6;
+  background: #fff;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 1s ease, background-color .5s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.inside:hover,
+.inside.dragover {
+  border-color: #4a90e2;
+  background-color: #e8f0fe;
+}
+
+.inside h3 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  color: #4a90e2;
+}
+
+.inside p {
+  font-size: 14px;
+  color: #7a7a7a;
+  margin-top: 10px;
+}
+
+.inside img{
+    width: 50px;
+    height: auto;
+    opacity: 0.6;
+    user-select: none;
+    pointer-events: none;
+}
+
+#fileElem{
+  display: none;
+}
