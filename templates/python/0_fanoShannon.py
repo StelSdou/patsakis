@@ -1,9 +1,4 @@
 from collections import Counter
-from textwrap import shorten
-from traceback import print_tb
-
-from PIL import Image
-import os
 
 def fanoShannon(data):
     if len(data) == 1:

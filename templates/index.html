@@ -7,6 +7,7 @@
     <title>Send File</title>
 </head>
 <body>
+    <img src="{{ url_for('static', filename='imgs/loading.gif') }}" id="loading">
     <form method="POST" id="form" enctype="multipart/form-data">
         <div class="box">
             <h2>Upload Your Image</h2>
@@ -19,7 +20,7 @@
                 <input type="file" name="fileElem" id="fileElem" accept="image/*">
             </div>
         </div>
-        <div class="sub" onclick="document.getElementById('form').submit()">
+        <div class="sub" onclick="upload()">
             <h2>Submit</h2>
         </div>
     </form>

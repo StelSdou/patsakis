@@ -13,6 +13,10 @@ html, body, form{
     justify-content: center;
 }
 
+#loading{
+    display: none;
+}
+
 .sub{
   margin-top: 20px;
   background-color: rgb(54, 134, 255);

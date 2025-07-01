@@ -3,37 +3,36 @@ const fileEl = document.getElementById("fileElem")
 const fileP = document.getElementById("file");
 const form = document.getElementById("form");
 
-form.addEventListener("submit", async function (e) {
-      e.preventDefault();
-
-      const fileInput = document.getElementById('fileElem');
-      const file = fileInput.files[0];
-
-      if (!file) {
+async function upload(){
+    const fileInput = document.getElementById('fileElem');
+    const file = fileInput.files[0];
+    document.getElementById("loading").style.display = "block";
+    if (!file) {
         alert("Διάλεξε ένα αρχείο πρώτα!");
         return;
-      }
+    }
 
-      const formData = new FormData();
-      formData.append("fileElem", file);
+    const formData = new FormData();
+    formData.append("file", file);
 
-      try {
-        const response = await fetch("http://127.0.0.1:8000/process", {
-          method: "POST",
-          body: formData
+    try {
+        const response = await fetch("http://127.0.0.1:8000/sendWithUi", {
+            method: "POST",
+            body: formData
         });
 
         if (!response.ok) {
-          throw new Error(`Σφάλμα ${response.status}`);
+            throw new Error(`Σφάλμα ${response.status}`);
+            document.getElementById("loading").style.display = "none";
         }
 
         const result = await response.json();
         console.log("Απάντηση από server:", result);
-        alert("Επιτυχία! Δες κονσόλα.");
-      } catch (err) {
+    } catch (err) {
         alert("Σφάλμα σύνδεσης: " + err.message);
-      }
-});
+        document.getElementById("loading").style.display = "none";
+    }
+}
 
 inside.addEventListener('click', () => {
     inside.classList.add('dragover');
